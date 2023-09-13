@@ -389,6 +389,9 @@ export default {
         } else {
           dateParts.push({});
         }
+      } else if (isObject(value) && value) {
+        if (value.start) dateParts.push(this.getDateParts(value.start));
+        if (value.end) dateParts.push(this.getDateParts(value.end));
       } else if (value) {
         dateParts.push(this.getDateParts(value));
       } else {
