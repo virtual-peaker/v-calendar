@@ -1,5 +1,5 @@
 <script>
-import CalendarDay from './CalendarDay';
+import CalendarDay from './CalendarDay.vue';
 import { childMixin, safeScopedSlotMixin } from '../utils/mixins';
 import { getPopoverTriggerEvents } from '../utils/popovers';
 import { isBoolean } from '../utils/_';

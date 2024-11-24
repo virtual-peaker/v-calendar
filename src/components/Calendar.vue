@@ -2,12 +2,12 @@
 import addDays from 'date-fns/addDays';
 import addMonths from 'date-fns/addMonths';
 import addYears from 'date-fns/addYears';
-import Popover from './Popover';
-import PopoverRow from './PopoverRow';
-import CalendarNav from './CalendarNav';
-import CalendarPane from './CalendarPane';
-import CustomTransition from './CustomTransition';
-import SvgIcon from './SvgIcon';
+import Popover from './Popover.vue';
+import PopoverRow from './PopoverRow.vue';
+import CalendarNav from './CalendarNav.vue';
+import CalendarPane from './CalendarPane.vue';
+import CustomTransition from './CustomTransition.vue';
+import SvgIcon from './SvgIcon.vue';
 import AttributeStore from '../utils/attributeStore';
 import { rootMixin, safeScopedSlotMixin } from '../utils/mixins';
 import { addHorizontalSwipeHandler } from '../utils/touch';

@@ -1,7 +1,7 @@
 <script>
-import Calendar from './Calendar';
-import Popover from './Popover';
-import TimePicker from './TimePicker';
+import Calendar from './Calendar.vue';
+import Popover from './Popover.vue';
+import TimePicker from './TimePicker.vue';
 import { rootMixin } from '../utils/mixins';
 import {
   datesAreEqual,
