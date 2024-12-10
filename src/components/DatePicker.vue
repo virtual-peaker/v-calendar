@@ -151,6 +151,7 @@ export default {
   props: {
     mode: { type: String, default: MODE.DATE },
     value: { type: null, required: true },
+    alwaysWatchValue: { type: Boolean, default: false },
     modelConfig: { type: Object, default: () => ({ ..._dateConfig }) },
     is24hr: Boolean,
     minuteIncrement: Number,
@@ -330,7 +331,7 @@ export default {
       this.formatInput();
     },
     value() {
-      if (!this.watchValue) return;
+      if (!this.watchValue && !this.alwaysWatchValue) return;
       this.forceUpdateValue(this.value, {
         config: this.modelConfig_,
         notify: false,
