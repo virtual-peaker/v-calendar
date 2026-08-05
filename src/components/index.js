@@ -1,4 +1,4 @@
-export { default as Calendar } from './Calendar';
-export { default as CalendarNav } from './CalendarNav';
-export { default as DatePicker } from './DatePicker';
-export { default as Popover } from './Popover';
+export { default as Calendar } from './Calendar.vue';
+export { default as CalendarNav } from './CalendarNav.vue';
+export { default as DatePicker } from './DatePicker.vue';
+export { default as Popover } from './Popover.vue';
