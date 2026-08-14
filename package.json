@@ -45,6 +45,7 @@
     "./dist/*": "./dist/*"
   },
   "scripts": {
+    "prepare": "npm run build",
     "build": "tsx build/build.ts",
     "build:docs": "cd docs && yarn build",
     "build:all": "yarn build && yarn build:docs",
