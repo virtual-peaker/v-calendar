@@ -5,6 +5,7 @@
   "description": "A clean and extendable plugin for building simple attributed calendars in Vue.js.",
   "author": "Nathan Reyes <nathanreyes@me.com>",
   "scripts": {
+    "prepare": "NODE_OPTIONS=--openssl-legacy-provider npm run build",
     "serve": "vue-cli-service serve src/lib.js",
     "build": "yarn build:lib && yarn build:calendar && yarn build:date-picker && yarn build:popover && yarn build:popover-row",
     "lint": "vue-cli-service lint",
@@ -47,6 +48,8 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
     "postcss-preset-env": "^6.7.0",
+    "sass": "^1.85.0",
+    "sass-loader": "^10.5.2",
     "tailwindcss": "^1.5.1",
     "vuepress": "1.2.0",
     "webpack-bundle-analyzer": "^3.8.0"
