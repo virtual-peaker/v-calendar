@@ -112,6 +112,7 @@ const selectedLabel = computed(() => {
     display: block;
     appearance: none;
     background-color: var(--vc-select-bg);
+    border: none;
     border-radius: var(--vc-rounded);
     height: 30px;
     width: max-content;
