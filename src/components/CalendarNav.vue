@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import SvgIcon from './SvgIcon';
+import SvgIcon from './SvgIcon.vue';
 import { childMixin } from '../utils/mixins';
 import { head, last } from '../utils/_';
 import { onSpaceOrEnter, pad } from '../utils/helpers';

@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import TimeSelect from './TimeSelect';
+import TimeSelect from './TimeSelect.vue';
 import { pad } from '../utils/helpers';
 
 export default {
