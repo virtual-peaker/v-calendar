@@ -616,7 +616,12 @@ export function createDatePicker(
   }
 
   function getDateParts(value: any): (DateParts | null)[] {
-    if (isRange.value) {
+    // A consumer may pass a { start, end } value while is-range is false
+    // (a prop-binding mismatch on their end) — handle that shape gracefully
+    // instead of forwarding the raw object to locale.getDateParts, which
+    // expects a Date and throws "date.getTime is not a function".
+    const looksLikeRange = value && typeof value === 'object' && ('start' in value || 'end' in value);
+    if (isRange.value || looksLikeRange) {
       return [
         value && value.start ? locale.value.getDateParts(value.start) : null,
         value && value.end ? locale.value.getDateParts(value.end) : null,
