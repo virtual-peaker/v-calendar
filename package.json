@@ -1,7 +1,7 @@
 {
   "name": "@virtual-peaker/v-calendar",
   "type": "module",
-  "version": "3.1.2-vp-vue3.0",
+  "version": "3.1.2-vp-vue3.1",
   "description": "A calendar and date picker plugin for Vue.js.",
   "author": "Nathan Reyes <nathanreyes@me.com>",
   "repository": "https://github.com/virtual-peaker/v-calendar",
