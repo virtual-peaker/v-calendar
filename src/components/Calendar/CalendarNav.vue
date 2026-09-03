@@ -266,8 +266,12 @@ onMounted(() => focusFirstItem());
   margin: 0;
   cursor: pointer;
   user-select: none;
+  background-color: transparent;
   border: 0;
   border-radius: var(--vc-rounded);
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: inherit;
   white-space: nowrap;
   &:hover {
     background-color: var(--vc-nav-hover-bg);

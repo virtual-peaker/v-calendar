@@ -98,6 +98,21 @@ describe('DateRangeContext', () => {
   });
   const days = daysInRange(ctxRange);
   const ctx = new DateRangeContext();
+  // Regression test: render() previously did an unguarded `days[0].dayIndex`,
+  // which throws when `days` is empty. Under Vue 3.5+'s reactivity engine this
+  // was reproducible live (real browser clicks, not synthetic events) when the
+  // "selected day" highlight recomputes before the calendar's internal pages
+  // are populated — a mount-and-click test in jsdom would not reliably catch
+  // this timing-dependent case, so this calls the vulnerable method directly.
+  it('should not throw when days is empty', () => {
+    const emptyCtx = new DateRangeContext();
+    expect(() =>
+      emptyCtx.render({ key: 'empty-days-guard' }, ctxRange, []),
+    ).not.toThrow();
+    expect(emptyCtx.render({ key: 'empty-days-guard' }, ctxRange, [])).toEqual(
+      null,
+    );
+  });
   ranges.forEach(({ summary, range, includes, excludes }, i) => {
     it(`should render ${summary}`, () => {
       ctx.render({ key: i }, locale.range(range), days);

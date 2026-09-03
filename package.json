@@ -1,11 +1,14 @@
 {
-  "name": "v-calendar",
+  "name": "@virtual-peaker/v-calendar",
   "type": "module",
-  "version": "3.1.2",
+  "version": "3.1.2-vp-vue3.1",
   "description": "A calendar and date picker plugin for Vue.js.",
   "author": "Nathan Reyes <nathanreyes@me.com>",
-  "repository": "https://github.com/nathanreyes/v-calendar",
+  "repository": "https://github.com/virtual-peaker/v-calendar",
   "homepage": "https://vcalendar.io",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "jsdelivr": "dist/iife/index.js",
@@ -26,7 +29,8 @@
     "src",
     "dist",
     "package.json",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "exports": {
     ".": {
@@ -41,6 +45,7 @@
     "./dist/*": "./dist/*"
   },
   "scripts": {
+    "prepare": "npm run build",
     "build": "tsx build/build.ts",
     "build:docs": "cd docs && yarn build",
     "build:all": "yarn build && yarn build:docs",

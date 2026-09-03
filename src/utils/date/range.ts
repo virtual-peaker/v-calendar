@@ -181,6 +181,7 @@ export class DateRangeContext {
 
   render(data: RangeData, range: DateRange, days: DayParts[]) {
     let result = null;
+    if (!days.length) return result;
     const startDayIndex = days[0].dayIndex;
     const endDayIndex = days[days.length - 1].dayIndex;
     if (range.hasRepeat) {

@@ -163,8 +163,12 @@ const gridStyle = computed(() => {
   .vc-next {
     display: flex;
     align-items: center;
+    background-color: transparent;
     border: 0;
     border-radius: var(--vc-rounded);
+    appearance: none;
+    -webkit-appearance: none;
+    font: inherit;
     pointer-events: auto;
     user-select: none;
     cursor: pointer;

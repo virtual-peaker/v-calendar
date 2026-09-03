@@ -1,5 +1,5 @@
 import TimePicker from '@/components/DatePicker/TimePicker.vue';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { testNavigationMethods, testNavigationProps } from './navigation';
 import { testCalendarSlots, testDatePickerSlots } from './slots';
 import {
@@ -28,6 +28,39 @@ describe('DatePicker', () => {
       const day = dp.get(getDayContentClass(dp.vm, date));
       await day.trigger('click');
       expectValueEmitted(dp, date);
+    });
+
+    // Regression tests: a day click previously hid the popover unconditionally
+    // (hidePopover: true, hardcoded), closing it before a dateTime picker's
+    // time controls could be used. hidePopover() dispatches a 'hide-popover'
+    // CustomEvent on document — that's the real seam to assert on, since it's
+    // a local closure function in the source, not a spy-able vm method.
+    it(':mode - does not hide popover on day click in dateTime mode', async () => {
+      const date = new Date(2023, 0, 15);
+      const initialPage = { year: 2023, month: 1 };
+      const spy = vi.fn();
+      document.addEventListener('hide-popover', spy);
+      const dp = mountDp({
+        props: { modelValue: null, mode: 'dateTime', initialPage },
+      });
+      const day = dp.get(getDayContentClass(dp.vm, date));
+      await day.trigger('click');
+      expect(spy).not.toHaveBeenCalled();
+      document.removeEventListener('hide-popover', spy);
+    });
+
+    it(':mode - hides popover on day click in date mode', async () => {
+      const date = new Date(2023, 0, 15);
+      const initialPage = { year: 2023, month: 1 };
+      const spy = vi.fn();
+      document.addEventListener('hide-popover', spy);
+      const dp = mountDp({
+        props: { modelValue: null, mode: 'date', initialPage },
+      });
+      const day = dp.get(getDayContentClass(dp.vm, date));
+      await day.trigger('click');
+      expect(spy).toHaveBeenCalled();
+      document.removeEventListener('hide-popover', spy);
     });
 
     it(':value - updates model value on time select', async () => {
