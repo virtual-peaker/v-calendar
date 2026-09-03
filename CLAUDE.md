@@ -31,22 +31,10 @@ checkout for a long time. Every one of those commands fails here.
 
 ## Commands
 
-```bash
-npm run build      # tsx build/build.ts — types + all four bundle formats
-npm run build:docs # VitePress docs in docs/
-npm run build:all  # library + docs
-npm test           # vitest (watch mode)
-npm run lint       # ESLint
-npm run format     # Prettier write over src/
-```
-
-Run a single test file: `npx vitest run tests/unit/specs/<file>`
-
-**`prepare` runs `npm run build`**, so a plain `npm install` triggers a full `vue-tsc` type
-emit plus four Vite builds. Installs are slow here, and a type error anywhere in `src/` fails
-the install rather than a later build step.
-
-There is **no dev server**. Use the docs (`docs/`, VitePress) for interactive work.
+Commands for this package live in **`.claude/rules/commands-v-calendar.md`** in the `product-vp`
+root repo, scoped with `paths:` frontmatter so they load automatically when Claude works here.
+They are kept in one repo so they can be maintained and validated together —
+`node scripts/check-docs.js` checks every command named there against this `package.json`.
 
 ## The Build
 
